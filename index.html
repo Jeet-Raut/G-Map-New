@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>     
+    <meta charset="UTF-8">     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    <title>GoogleMapsClone</title>     
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">     
+    <link rel="stylesheet" href="style.css"> 
+</head> 
+<body>     
+    <nav class="navbar">         
+        <div class="logo">             
+            <i class="fas fa-map-marked-alt"></i>             
+            <span>GoogleMapsClone</span>         
+        </div>         
+        <div class="search-container">             
+            <input type="text" id="search-input" placeholder="Search places...">             
+            <button id="search-button"><i class="fas fa-search"></i></button>         
+        </div>         
+        <div class="nav-options">             
+            <button id="my-location-btn"><i class="fas fa-location-arrow"></i></button>             
+            <button id="toggle-satellite"><i class="fas fa-satellite"></i></button>             
+            <button id="toggle-traffic"><i class="fas fa-car"></i></button>         
+        </div>     
+    </nav>      
+    <div class="app-container">         
+        <div class="sidebar">             
+            <div class="directions-panel">                 
+                <h3>Directions</h3>                 
+                <div class="directions-inputs">                     
+                    <div class="input-group">                         
+                        <i class="fas fa-dot-circle"></i>                         
+                        <input type="text" id="start-location" placeholder="Choose starting point...">                     
+                    </div>                     
+                    <div class="input-group">                         
+                        <i class="fas fa-map-marker-alt"></i>                         
+                        <input type="text" id="end-location" placeholder="Choose destination...">                     
+                    </div>                     
+                    <div class="transport-options">                         
+                        <button id="drive-option" class="active"><i class="fas fa-car"></i></button>                         
+                        <button id="walk-option"><i class="fas fa-walking"></i></button>                         
+                        <button id="bike-option"><i class="fas fa-bicycle"></i></button>                         
+                        <button id="transit-option"><i class="fas fa-bus"></i></button>                     
+                    </div>                     
+                    <button id="get-directions-btn">Get Directions</button>                 
+                </div>                 
+                <div id="route-details" class="hidden">                     
+                    <div class="route-summary">                         
+                        <p id="route-distance"></p>                         
+                        <p id="route-duration"></p>                     
+                    </div>                     
+                    <div id="route-steps"></div>                 
+                </div>             
+            </div>             
+            <div class="places-panel">                 
+                <h3>Nearby Places</h3>                 
+                <div class="places-categories">                     
+                    <button data-category="restaurant"><i class="fas fa-utensils"></i> Restaurants</button>                     
+                    <button data-category="hotel"><i class="fas fa-hotel"></i> Hotels</button>                     
+                    <button data-category="cafe"><i class="fas fa-coffee"></i> Cafes</button>                     
+                    <button data-category="gas_station"><i class="fas fa-gas-pump"></i> Gas</button>                 
+                </div>                 
+                <div id="places-results"></div>             
+            </div>
+            <!-- Add this inside your sidebar -->
+            <div class="sidebar-section">
+                <h3>Saved Locations</h3>
+                <div id="saved-locations-list">
+                    <p>No saved locations yet.</p>
+                </div>
+            </div>
+        </div>         
+        <div id="map"></div>     
+    </div>      
+    <!-- Add these lines to your HTML file, right before your other scripts -->     
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>     
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>     
+    <script src="database.js"></script>     
+     
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>     
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>     
+    <script src="script.js"></script> 
+</body> 
+</html>

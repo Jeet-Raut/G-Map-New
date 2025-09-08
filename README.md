@@ -1,1 +1,1 @@
-# G-Map-New
+# Google map clone
